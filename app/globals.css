@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 24 20 22; /* #181516 */
+    --foreground: 251 246 232; /* #FFF6E8 */
+    --card: 24 20 22;
+    --card-foreground: 251 246 232;
+    --popover: 24 20 22;
+    --popover-foreground: 251 246 232;
+    --primary: 191 166 129; /* #BFA681 */
+    --primary-foreground: 24 20 22;
+    --secondary: 92 80 72; /* #5C5048 */
+    --secondary-foreground: 251 246 232;
+    --muted: 39 35 37;
+    --muted-foreground: 161 161 170;
+    --accent: 251 246 232; /* #FFF6E8 */
+    --accent-foreground: 24 20 22;
+    --destructive: 239 68 68;
+    --destructive-foreground: 248 250 252;
+    --border: 39 35 37;
+    --input: 39 35 37;
+    --ring: 191 166 129;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #181516;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #BFA681;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a89371;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles */
+.focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-dark;
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.6s ease-out;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #BFA681 0%, #FFF6E8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90 font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl;
+}
+
+.btn-outline {
+  @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-medium px-6 py-3 rounded-xl transition-all duration-200;
+}
+
+/* Hero section background */
+.hero-bg {
+  background: linear-gradient(135deg, #181516 0%, #2a2227 50%, #181516 100%);
+}
+
+/* Card styles */
+.card {
+  @apply bg-card text-card-foreground rounded-xl shadow-xl border border-border;
+}
+
+/* Instagram embed responsive */
+.instagram-embed {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.instagram-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
