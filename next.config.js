@@ -23,7 +23,7 @@ const nextConfig = {
     ],
   },
   experimental: {
-    optimizeCss: true,
+    // Removed optimizeCss to fix build issues
   },
   serverExternalPackages: ['@sendgrid/mail'],
 };
