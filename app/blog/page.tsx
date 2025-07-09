@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Search, Calendar, User, Eye, MessageCircle, Tag, ChevronLeft, ChevronRight, Clock } from "lucide-react";
+import { Search, Calendar, Eye, MessageCircle, ChevronLeft, ChevronRight, Clock } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface BlogPost {
   id: string;
@@ -274,9 +275,11 @@ export default function BlogPage() {
                   className="bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all group"
                 >
                   <div className="relative aspect-[16/9] overflow-hidden">
-                    <img
+                    <Image
                       src={post.image}
                       alt={post.title}
+                      width={800}
+                      height={400}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute top-4 left-4 bg-primary text-dark px-3 py-1 rounded-full text-sm font-medium">
@@ -398,9 +401,11 @@ export default function BlogPage() {
                   className="bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all group"
                 >
                   <div className="relative aspect-[16/9] overflow-hidden">
-                    <img
+                    <Image
                       src={post.image}
                       alt={post.title}
+                      width={800}
+                      height={400}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute top-4 left-4 bg-card/90 backdrop-blur-sm px-2 py-1 rounded text-sm font-medium text-primary">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -46,7 +46,7 @@ interface Service {
   price: { min: number; max?: number };
   duration: string;
   category: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
   popular?: boolean;
 }
 
@@ -183,7 +183,7 @@ export default function BookingPage() {
     setSelectedDate(date);
     setValue("preferredDate", date);
     // Simulate loading available slots
-    const mockSlots = timeSlots.filter((_, index) => Math.random() > 0.3);
+    const mockSlots = timeSlots.filter(() => Math.random() > 0.3);
     setAvailableSlots(mockSlots);
   };
 
@@ -633,7 +633,7 @@ export default function BookingPage() {
                     {submitStatus === "success" && (
                       <div className="bg-green-900/20 border border-green-500/50 rounded-lg p-4 mb-6 flex items-center gap-3">
                         <CheckCircle className="w-5 h-5 text-green-500" />
-                        <span className="text-green-400">Booking request sent successfully! We'll contact you soon to confirm.</span>
+                        <span className="text-green-400">Booking request sent successfully! We&apos;ll contact you soon to confirm.</span>
                       </div>
                     )}
 

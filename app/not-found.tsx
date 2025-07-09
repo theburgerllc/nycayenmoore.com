@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Search, Home, Calendar, Scissors, ArrowLeft, Phone, Mail } from "lucide-react";
+import { Search, Home, Calendar, Scissors, Phone, Mail } from "lucide-react";
 import Link from "next/link";
 
 export default function NotFound() {
@@ -136,8 +136,8 @@ export default function NotFound() {
               variants={itemVariants}
               className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
             >
-              Oops! The page you're looking for seems to have gotten a new style. 
-              Let's help you find what you need.
+              Oops! The page you&apos;re looking for seems to have gotten a new style. 
+              Let&apos;s help you find what you need.
             </motion.p>
             <motion.div 
               variants={itemVariants}
@@ -362,7 +362,7 @@ export default function NotFound() {
                 Ready for a New Look?
               </h2>
               <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Don't let a wrong turn stop you from looking amazing. Book your appointment today 
+                Don&apos;t let a wrong turn stop you from looking amazing. Book your appointment today 
                 and let us transform your hair into a work of art.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

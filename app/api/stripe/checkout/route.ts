@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { items, successUrl, cancelUrl, customerEmail, mode = "payment" } = body;
+    const { successUrl } = body;
 
     const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 

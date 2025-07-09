@@ -128,7 +128,7 @@ export default function AboutPage() {
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   At Nycayen, our mission is to <span className="text-primary font-semibold">Empower Through Beauty</span> 
                   by boosting confidence through personalized hair styling. We believe that beautiful hair is not just about 
-                  appearance—it's about how you feel when you look in the mirror.
+                  appearance—it&apos;s about how you feel when you look in the mirror.
                 </p>
               </motion.div>
               
@@ -160,7 +160,7 @@ export default function AboutPage() {
 
               <motion.div variants={itemVariants}>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Our tagline, <span className="text-primary font-semibold">"The Art of Hair,"</span> reflects our 
+                  Our tagline, <span className="text-primary font-semibold">&ldquo;The Art of Hair,&rdquo;</span> reflects our 
                   commitment to treating every styling session as a creative masterpiece.
                 </p>
               </motion.div>

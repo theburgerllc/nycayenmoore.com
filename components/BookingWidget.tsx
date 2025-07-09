@@ -337,7 +337,7 @@ export function BookingWidget({ preselectedService, className = "" }: BookingWid
             </button>
 
             <p className="text-sm text-muted-foreground text-center">
-              We'll contact you within 24 hours to confirm your appointment details.
+              We&apos;ll contact you within 24 hours to confirm your appointment details.
             </p>
           </form>
         </motion.div>

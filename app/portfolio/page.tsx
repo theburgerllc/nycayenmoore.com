@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Filter, X, ChevronLeft, ChevronRight, Star, Calendar, User, Heart, Grid, Layout } from "lucide-react";
+import Image from "next/image";
 
 interface PortfolioItem {
   id: string;
@@ -349,9 +350,11 @@ export default function PortfolioPage() {
               >
                 <div className="relative aspect-square overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent z-10" />
-                  <img
+                  <Image
                     src={item.afterImage}
                     alt={item.title}
+                    width={600}
+                    height={600}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute bottom-4 left-4 right-4 z-20">
@@ -442,9 +445,11 @@ export default function PortfolioPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-4">
                     <div className="relative aspect-square overflow-hidden rounded-lg">
-                      <img
+                      <Image
                         src={currentImageIndex === 0 ? selectedItem.afterImage : selectedItem.beforeImage}
                         alt={currentImageIndex === 0 ? "After" : "Before"}
+                        width={600}
+                        height={600}
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute top-4 left-4 bg-dark/80 px-2 py-1 rounded text-sm font-medium text-primary">
@@ -498,7 +503,7 @@ export default function PortfolioPage() {
                       <div>
                         <h3 className="font-playfair font-bold text-primary mb-2">Client Testimonial</h3>
                         <blockquote className="italic text-muted-foreground border-l-4 border-primary pl-4">
-                          "{selectedItem.testimonial}"
+                          &ldquo;{selectedItem.testimonial}&rdquo;
                         </blockquote>
                         <p className="text-sm text-muted-foreground mt-2">- {selectedItem.clientName}</p>
                       </div>

@@ -7,14 +7,7 @@ import {
   X, 
   Send, 
   User, 
-  Bot, 
-  Calendar, 
-  Phone, 
-  Mail,
-  Clock,
-  MapPin,
-  Scissors,
-  Palette
+  Bot
 } from "lucide-react";
 
 interface Message {
@@ -25,10 +18,6 @@ interface Message {
   quickReplies?: string[];
 }
 
-interface QuickReply {
-  text: string;
-  value: string;
-}
 
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,7 +52,7 @@ export function Chatbot() {
   // Scroll to bottom when new messages are added
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [messages]); // Actually need the full messages array to trigger properly
 
   // Focus input when chat opens
   useEffect(() => {

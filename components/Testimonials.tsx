@@ -170,7 +170,7 @@ export function Testimonials() {
                 <blockquote className="text-lg md:text-xl leading-relaxed text-accent italic relative">
                   <Quote className="w-6 h-6 text-primary/50 absolute -top-2 -left-2" />
                   <span className="ml-4">
-                    "{testimonials[currentIndex].comment}"
+                    &ldquo;{testimonials[currentIndex].comment}&rdquo;
                   </span>
                 </blockquote>
               </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Filter, Grid, List, Search, Eye, Heart, Share2, Calendar } from "lucide-react";
 

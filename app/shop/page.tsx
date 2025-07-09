@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Search, ShoppingCart, Star, Heart, Filter, Plus, Minus, X, ShoppingBag } from "lucide-react";
+import { Search, ShoppingCart, Star, Heart, Plus, Minus, X, ShoppingBag } from "lucide-react";
 import { shopifyClient, ShopifyProduct, ShopifyCart } from "@/utils/shopify";
+import Image from "next/image";
 
 export default function ShopPage() {
   const [mounted, setMounted] = useState(false);
@@ -11,7 +12,7 @@ export default function ShopPage() {
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState<ShopifyCart | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [_selectedCategory] = useState("all"); // eslint-disable-line @typescript-eslint/no-unused-vars
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [addingToCart, setAddingToCart] = useState<string | null>(null);
 
@@ -209,9 +210,11 @@ export default function ShopPage() {
                   className="bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all group"
                 >
                   <div className="relative aspect-square overflow-hidden">
-                    <img
+                    <Image
                       src={product.image}
                       alt={product.title}
+                      width={400}
+                      height={400}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">

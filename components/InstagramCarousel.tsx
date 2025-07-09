@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Instagram, Play, Heart, MessageCircle } from "lucide-react";
 
@@ -20,10 +20,10 @@ export function InstagramCarousel() {
   const [posts, setPosts] = useState<InstagramPost[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [_error] = useState<string | null>(null); // eslint-disable-line @typescript-eslint/no-unused-vars
 
   // Mock Instagram posts for fallback
-  const mockPosts: InstagramPost[] = [
+  const mockPosts = useMemo<InstagramPost[]>(() => [
     {
       id: '1',
       type: 'video',
@@ -74,13 +74,9 @@ export function InstagramCarousel() {
       like_count: 201,
       comments_count: 15,
     },
-  ];
+  ], []);
 
-  useEffect(() => {
-    fetchInstagramPosts();
-  }, []);
-
-  const fetchInstagramPosts = async () => {
+  const fetchInstagramPosts = useCallback(async () => {
     const accessToken = process.env.NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN;
     const userId = process.env.NEXT_PUBLIC_INSTAGRAM_USER_ID;
 
@@ -101,7 +97,7 @@ export function InstagramCarousel() {
       }
 
       const data = await response.json();
-      const transformedPosts: InstagramPost[] = data.data.map((post: any) => ({
+      const transformedPosts: InstagramPost[] = data.data.map((post: { id: string; media_type: string; media_url: string; thumbnail_url?: string; caption?: string; permalink: string; timestamp: string; like_count?: number; comments_count?: number }) => ({
         id: post.id,
         type: post.media_type.toLowerCase(),
         media_url: post.media_url,
@@ -116,12 +112,15 @@ export function InstagramCarousel() {
       setPosts(transformedPosts);
     } catch (err) {
       console.error('Error fetching Instagram posts:', err);
-      setError('Failed to load Instagram posts');
       setPosts(mockPosts); // Fallback to mock data
     } finally {
       setLoading(false);
     }
-  };
+  }, [mockPosts]);
+
+  useEffect(() => {
+    fetchInstagramPosts();
+  }, [fetchInstagramPosts]);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % posts.length);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Calendar, User, Clock, ArrowRight, Tag, Eye, MessageCircle } from "lucide-react";
@@ -144,7 +144,7 @@ export function BlogPreview({ limit = 3, showFeatured = true, layout = 'grid' }:
         initial="hidden"
         animate="visible"
       >
-        {displayPosts.map((post, index) => (
+        {displayPosts.map((post) => (
           <motion.article
             key={post.id}
             variants={itemVariants}
@@ -241,7 +241,7 @@ export function BlogPreview({ limit = 3, showFeatured = true, layout = 'grid' }:
       animate="visible"
     >
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {displayPosts.map((post, index) => (
+        {displayPosts.map((post) => (
           <motion.article
             key={post.id}
             variants={itemVariants}

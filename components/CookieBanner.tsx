@@ -82,7 +82,7 @@ export function CookieBanner() {
     // Initialize Google Analytics or other analytics tools
     if (typeof window !== 'undefined' && window.gtag) {
       // Type assertion for gtag consent command
-      (window.gtag as any)('consent', 'update', {
+      (window.gtag as ((command: string, action: string, params: Record<string, string>) => void))('consent', 'update', {
         analytics_storage: 'granted'
       });
     }
@@ -164,7 +164,7 @@ export function CookieBanner() {
                   <div className="flex-1 space-y-4">
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       We use cookies to enhance your browsing experience, serve personalized content, 
-                      and analyze our traffic. By clicking "Accept All", you consent to our use of cookies. 
+                      and analyze our traffic. By clicking &ldquo;Accept All&rdquo;, you consent to our use of cookies. 
                       You can manage your preferences or learn more in our{" "}
                       <a 
                         href="/privacy-policy" 

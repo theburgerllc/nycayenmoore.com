@@ -4,7 +4,7 @@ import { sendgridClient } from "@/utils/sendgrid";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { type, name, email, phone, service, preferredDate, preferredTime, message, ...rest } = body;
+    const { type, name, email, phone, service, preferredDate, preferredTime, message } = body;
 
     // Validate required fields
     if (!name || !email) {

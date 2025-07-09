@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Clock, DollarSign, Star, Scissors, Palette, Sparkles, Crown, Heart, Zap } from "lucide-react";
 import Link from "next/link";
@@ -15,7 +15,7 @@ interface Service {
   category: string;
   features: string[];
   popular?: boolean;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 export default function ServicesPage() {
@@ -384,7 +384,7 @@ export default function ServicesPage() {
               className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
             >
               Book your appointment today and experience the art of hair styling with Nycayen. 
-              We can't wait to help you discover your perfect look.
+              We can&apos;t wait to help you discover your perfect look.
             </motion.p>
             <motion.div 
               variants={itemVariants}

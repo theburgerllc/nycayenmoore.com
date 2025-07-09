@@ -355,7 +355,7 @@ export default function PrivacyPolicyPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="space-y-8">
-              {sections.map((section, index) => (
+              {sections.map((section) => (
                 <motion.div
                   key={section.id}
                   initial="hidden"
@@ -525,7 +525,7 @@ export default function PrivacyPolicyPage() {
               </h2>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                 We are committed to protecting your privacy and being transparent about our data practices. 
-                If you have any questions or concerns, please don't hesitate to contact us.
+                If you have any questions or concerns, please don&apos;t hesitate to contact us.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a

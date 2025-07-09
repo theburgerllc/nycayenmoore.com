@@ -192,7 +192,7 @@ export default function ContactPage() {
               variants={itemVariants}
               className="text-xl md:text-2xl text-muted-foreground mb-8"
             >
-              We'd love to hear from you. Get in touch with us today.
+              We&apos;d love to hear from you. Get in touch with us today.
             </motion.p>
             <motion.div 
               variants={itemVariants}
@@ -256,7 +256,7 @@ export default function ContactPage() {
                   className="bg-green-900/20 border border-green-500/50 rounded-lg p-4 mb-6 flex items-center gap-3"
                 >
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span className="text-green-400">Message sent successfully! We'll get back to you soon.</span>
+                  <span className="text-green-400">Message sent successfully! We&apos;ll get back to you soon.</span>
                 </motion.div>
               )}
 
